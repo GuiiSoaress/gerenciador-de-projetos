@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `gerenciamento_projetos` /*!40100 DEFAULT CHARACTER SET utf8mb3 */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `gerenciamento_projetos`;
--- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.41, for Win64 (x86_64)
 --
 -- Host: localhost    Database: gerenciamento_projetos
 -- ------------------------------------------------------
--- Server version	8.0.36
+-- Server version	8.0.41
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -30,7 +30,7 @@ CREATE TABLE `membro` (
   `email` varchar(100) NOT NULL,
   `cargo` varchar(100) NOT NULL,
   PRIMARY KEY (`id_membro`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `membro` (
 
 LOCK TABLES `membro` WRITE;
 /*!40000 ALTER TABLE `membro` DISABLE KEYS */;
-INSERT INTO `membro` VALUES (1,'Guilherme Soares','guihhsoaress@gmail.com','Lider'),(2,'Kaique Santos','kaique@gmail.com','Supervisor'),(3,'Henrique Linhares','hlinhares@gmail.com','Analista de TI');
+INSERT INTO `membro` VALUES (1,'Guilherme Soares','guihhsoaress@gmail.com','Lider'),(2,'Kaique Santos','kaique@gmail.com','Supervisor'),(3,'Henrique Linhares','hlinhares@gmail.com','Analista de TI'),(4,'Jean Vinicius','jean@gmail.com','Desenvolvedor Front-ChatGPT');
 /*!40000 ALTER TABLE `membro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -57,7 +57,7 @@ CREATE TABLE `projeto` (
   `data_inicio` date DEFAULT NULL,
   `data_fim` date DEFAULT NULL,
   PRIMARY KEY (`id_projeto`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,7 +66,7 @@ CREATE TABLE `projeto` (
 
 LOCK TABLES `projeto` WRITE;
 /*!40000 ALTER TABLE `projeto` DISABLE KEYS */;
-INSERT INTO `projeto` VALUES (1,'FixNow','Sistema de gerenciamento de solicitações de manutenção Empresarial','2025-02-01',NULL),(2,'SafeBox','Sistema','2025-05-12',NULL),(3,'Macaco','asdasd','2025-05-21',NULL);
+INSERT INTO `projeto` VALUES (1,'FixNow','Sistema de gerenciamento de solicitações de manutenção Empresarial','2025-02-01',NULL),(2,'SafeBox','Sistema de encomendas para condominios','2025-05-12',NULL),(4,'CiaEstagios','Sistema de gerenciamento de estagiarios','2025-05-22',NULL);
 /*!40000 ALTER TABLE `projeto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,7 +90,7 @@ CREATE TABLE `tarefa` (
   KEY `fk_tarefa_membro1_idx` (`membro_id_membro`),
   CONSTRAINT `fk_tarefa_membro1` FOREIGN KEY (`membro_id_membro`) REFERENCES `membro` (`id_membro`),
   CONSTRAINT `fk_tarefa_projeto` FOREIGN KEY (`projeto_id_projeto`) REFERENCES `projeto` (`id_projeto`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -99,7 +99,7 @@ CREATE TABLE `tarefa` (
 
 LOCK TABLES `tarefa` WRITE;
 /*!40000 ALTER TABLE `tarefa` DISABLE KEYS */;
-INSERT INTO `tarefa` VALUES (1,'Criar Banco de dados','2025-05-14',NULL,'Em andamento',1,1),(2,'Criar APIS','2025-05-13',NULL,'Em andamento',1,2),(3,'Criar Documentação','2025-05-16',NULL,'Atrasada',1,1),(4,'Montar hardware','2025-05-21',NULL,'Atrasada',2,2),(5,'asdasd','2025-05-21',NULL,'Atrasada',2,2);
+INSERT INTO `tarefa` VALUES (1,'Criar Banco de dados','2025-05-14',NULL,'Em andamento',1,1),(2,'Criar APIS','2025-05-13',NULL,'Em andamento',1,2),(3,'Criar Documentação','2025-05-16',NULL,'Atrasada',1,1),(4,'Montar hardware','2025-05-21',NULL,'Atrasada',2,2),(6,'Perguntar pro chat como que faz','2025-05-20',NULL,'Atrasada',4,4);
 /*!40000 ALTER TABLE `tarefa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -245,4 +245,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-05-21 21:22:23
+-- Dump completed on 2025-05-22 10:48:05
